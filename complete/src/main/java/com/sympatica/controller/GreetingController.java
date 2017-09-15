@@ -1,28 +1,37 @@
 package com.sympatica.controller;
 
-import java.util.concurrent.atomic.AtomicLong;
-
 import com.sympatica.entity.Greeting;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.atomic.AtomicLong;
+
 @RestController
-@RequestMapping(value = "/greeting" )
+@RequestMapping(value = "/greeting")
 public class GreetingController {
 
     private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
+    @Autowired
+    private Environment env;
 
     @RequestMapping(method = RequestMethod.GET)
-    public Greeting greeting(@RequestParam(value="name", defaultValue="World") String name) {
+    public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
+
+        System.out.println();
+        System.out.println(env.getProperty("server.token"));
+
         return new Greeting(counter.incrementAndGet(),
-                            String.format(template, name));
+                String.format(template, name));
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public Greeting postgreeting(@RequestParam(value="name", defaultValue="World") String name) {
+    public Greeting postgreeting(@RequestParam(value = "name", defaultValue = "World") String name) {
         return new Greeting(counter.incrementAndGet(),
                 String.format("POST NEW NNAME %s", name));
     }

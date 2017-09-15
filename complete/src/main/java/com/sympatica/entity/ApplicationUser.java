@@ -1,16 +1,15 @@
 package com.sympatica.entity;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 /**
  * Created by NguyenTrung on 11/9/17.
  */
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 @Entity // This tells Hibernate to make a table out of this class
-public class User {
+@Table(name = "User")
+@Embeddable
+public class ApplicationUser {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private String id;
@@ -18,6 +17,17 @@ public class User {
     private String fullName;
 
     private String email;
+
+    private String password;
+
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public String getId() {
         return id;

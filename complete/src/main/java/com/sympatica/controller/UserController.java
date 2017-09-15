@@ -4,7 +4,7 @@ package com.sympatica.controller;
  * Created by NguyenTrung on 11/9/17.
  */
 
-import com.sympatica.entity.User;
+import com.sympatica.entity.ApplicationUser;
 import com.sympatica.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -26,7 +26,7 @@ public class UserController {
         // @ResponseBody means the returned String is the response, not a view name
         // @RequestParam means it is a parameter from the GET or POST request
 
-        User n = new User();
+        ApplicationUser n = new ApplicationUser();
         n.setFullName(name);
         n.setEmail(email);
         n.setId(id);
@@ -43,7 +43,7 @@ public class UserController {
     @GetMapping(path = "/all")
     public
     @ResponseBody
-    Iterable<User> getAllUsers() {
+    Iterable<ApplicationUser> getAllUsers() {
         // This returns a JSON or XML with the users
         return userRepository.findAll();
     }
