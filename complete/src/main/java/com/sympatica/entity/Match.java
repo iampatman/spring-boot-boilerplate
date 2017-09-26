@@ -1,7 +1,5 @@
 package com.sympatica.entity;
 
-import com.sun.istack.internal.Nullable;
-
 import javax.persistence.*;
 import java.util.List;
 import java.util.Set;
@@ -28,8 +26,8 @@ public class Match {
     @JoinColumn(name = "host_id")
     private ApplicationUser host;
 
+
     @OneToMany(mappedBy = "matchId", fetch = FetchType.LAZY)
-    @Nullable
     private List<MatchMember> participants;
 
     public ApplicationUser getHost() {

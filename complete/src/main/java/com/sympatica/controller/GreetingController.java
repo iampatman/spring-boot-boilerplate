@@ -24,8 +24,10 @@ public class GreetingController {
     public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
 
         System.out.println();
-        System.out.println(env.getProperty("server.token"));
-
+        System.out.println(env.getProperty("server.url"));
+        for (final String profileName : env.getActiveProfiles()) {
+            System.out.println("Currently active profile - " + profileName);
+        }
         return new Greeting(counter.incrementAndGet(),
                 String.format(template, name));
     }

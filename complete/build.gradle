@@ -8,12 +8,12 @@ buildscript {
 }
 
 apply plugin: 'java'
-apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 
+
 jar {
-    baseName = 'gs-rest-service'
+    baseName = 'api-rest-service'
     version =  '0.1.0'
 }
 
@@ -25,8 +25,39 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web")
-    testCompile('org.springframework.boot:spring-boot-starter-test')
+
+    // https://mvnrepository.com/artifact/joda-time/joda-time
+    compile group: 'joda-time', name: 'joda-time', version: '2.9.9'
+
+
+    //compile "joda-time:joda-time:2.2"
+    //compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-data-rest")
+    compile("org.springframework.boot:spring-boot-starter-data-mongodb")
+    compile("org.springframework.boot:spring-boot-starter-security")
+    // https://mvnrepository.com/artifact/org.hsqldb/hsqldb
+    //compile("org.hsqldb:hsqldb")
+    compile group: 'org.yaml', name: 'snakeyaml', version: '1.8'
+
+
     testCompile('com.jayway.jsonpath:json-path')
+    compile("org.springframework:spring-jdbc")
+
+
+    // JPA Data (We are going to use Repositories, Entities, Hibernate, etc...)
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // Use MySQL Connector-J
+    compile 'mysql:mysql-connector-java'
+
+
+    compile 'io.jsonwebtoken:jjwt:0.7.0'
+
+
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+
 }
+
+
 

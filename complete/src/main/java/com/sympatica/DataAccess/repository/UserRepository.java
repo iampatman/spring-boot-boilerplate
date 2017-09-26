@@ -1,4 +1,4 @@
-package com.sympatica.repository;
+package com.sympatica.DataAccess.repository;
 
 /**
  * Created by NguyenTrung on 11/9/17.

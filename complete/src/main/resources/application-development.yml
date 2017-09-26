@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: jdbc:mysql://52.221.233.152:3306/home_ground_dev
+    username: dev
+    password: zK@$y8XuVX
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+server:
+  secretKey: asdfdsaf

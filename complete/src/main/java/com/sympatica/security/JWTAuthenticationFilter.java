@@ -1,7 +1,6 @@
 package com.sympatica.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sympatica.entity.ApplicationUser;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -11,7 +10,6 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +18,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 
-import static com.sympatica.repository.SecurityConstants.*;
+import static com.sympatica.DataAccess.repository.SecurityConstants.*;
 
 /**
  * Created by NguyenTrung on 14/9/17.

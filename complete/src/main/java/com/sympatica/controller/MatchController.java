@@ -1,7 +1,7 @@
 package com.sympatica.controller;
 
 import com.sympatica.entity.Match;
-import com.sympatica.repository.MatchRepository;
+import com.sympatica.DataAccess.repository.MatchRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

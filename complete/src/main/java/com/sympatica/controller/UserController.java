@@ -5,7 +5,7 @@ package com.sympatica.controller;
  */
 
 import com.sympatica.entity.ApplicationUser;
-import com.sympatica.repository.UserRepository;
+import com.sympatica.DataAccess.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
